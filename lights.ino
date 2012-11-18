@@ -1,6 +1,3 @@
- // Pin 13 has an LED connected on most Arduino boards.
-// give it a name:
-int led = 5;
 int show = 1;
 int times = 1;
 
@@ -17,39 +14,7 @@ void setup() {
   pinMode(12, OUTPUT);     
 }
 
-// the loop routine runs over and over again forever:
-void loop() {
-  if(show==1) {
-  if(times==5){
-  show=2;
-  times=1;
-  }
-  else
-  if(times<5){
-  times=times+1;
-  }
-  }
-  if(show==2) {
-  if(times==5){
-  show=3;
-  times=1;
-  }
-  else
-  if(times<5){
-  times=times+1;
-  }
-  }
-  if(show==3) {
-  if(times==10){
-  show=1;
-  times=1;
-  }
-  else
-  if(times<10){
-  times=times+1;
-  }
-  }
-  if(show == 1) {
+void show1() {
   digitalWrite( 5, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite( 9, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(100);               // wait for a second
@@ -90,8 +55,9 @@ void loop() {
   delay(100);               // wait for a second
   digitalWrite(12, LOW);    // turn the LED off by making the voltage LOW
   digitalWrite(8, LOW);    // turn the LED off by making the voltage LOW
-  }
-  if(show == 2) {
+}
+
+void show2() {
   digitalWrite( 5, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite( 6, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(100);               // wait for a second
@@ -132,8 +98,10 @@ void loop() {
   delay(100);               // wait for a second
   digitalWrite(12, LOW);    // turn the LED off by making the voltage LOW
   digitalWrite(5, LOW);    // turn the LED off by making the voltage LOW
-  }
-  if(show == 3) {
+}
+
+void show3()
+{
   digitalWrite( 5, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(7, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(9, HIGH);   // turn the LED on (HIGH is the voltage level)
@@ -153,5 +121,47 @@ void loop() {
   digitalWrite(10, LOW);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(12, LOW);   // turn the LED on (HIGH is the voltage level)
   delay(100);               // wait for a second
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  if(show==1) {
+  if(times==5){
+  show=2;
+  times=1;
+  }
+  else
+  if(times<5){
+  times=times+1;
+  }
+  }
+  if(show==2) {
+  if(times==5){
+  show=3;
+  times=1;
+  }
+  else
+  if(times<5){
+  times=times+1;
+  }
+  }
+  if(show==3) {
+  if(times==10){
+  show=1;
+  times=1;
+  }
+  else
+  if(times<10){
+  times=times+1;
+  }
+  }
+  if(show == 1) {
+    show1();
+  }
+  if(show == 2) {
+    show2();
+  }
+  if(show == 3) {
+    show3();
   }
 }
